@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+      PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+      "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动 -->
+	<!-- <classPathEntry location="ojdbc14.jar" /> -->
+
+	<!-- targetRuntime:生成代码的运行环境。由于我使用的是ibatis2所以选择Ibatis2Java5。 -->
+	<context id="MySqlTables" targetRuntime="Ibatis2Java5">
+
+		<property name="ignoreQualifiersAtRuntime" value="true"></property>
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+
+		<!-- 数据库配置 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/test" userId="root"
+			password="123456">
+		</jdbcConnection>
+
+
+		<javaTypeResolver type="MyJavaTypeResolverDefaultImpl">
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+
+		<!-- model配置 -->
+		<javaModelGenerator targetPackage="com.travle.model"
+			targetProject="d:/tmp">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<!-- dao配置 -->
+		<sqlMapGenerator targetPackage="com.travle.dao"
+			targetProject="d:/tmp">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator type="SPRING"
+			targetPackage="com.travle.ibatis"
+			targetProject="d:/tmp">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table tableName="HOLIDAY_ORDER_INFO" schema="test" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+			<generatedKey column="ORDER_ID" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" />
+		</table>
+		<!-- <table tableName="f_buyer_info" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+		</table>
+		<table tableName="f_logistics_info" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+		</table> -->
+		<!-- <table tableName="f_order_main_info" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+		</table> -->
+		<!-- <table tableName="f_d_car_info" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+		</table>
+		<table tableName="f_d_car_model" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+		</table>
+		<table tableName="f_d_displacement" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+		</table>
+		<table tableName="f_d_market_year" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+		</table> -->
+		<!--  <table tableName="f_settle_order_main_info" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+			<generatedKey column="SETTLE_ID" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" />
+		</table> -->
+		
+		<!-- <table tableName="f_settle_order_info" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+			<generatedKey column="SETTLE_D_ID" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" />
+		</table> -->
+		
+	<!-- 	<table tableName="f_pay_accoun_info" schema="wsh" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="false" />
+			<generatedKey column="PAY_ID" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" />
+		</table> -->
+
+		<!-- <table tableName="CM_CONTACT_GROUP" schema="youni" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="suffixSupport" value="true" />
+			<generatedKey column="GROUP_ID" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" />
+		</table> -->
+		<!-- <table tableName="CM_CONTACT_GROUP_REL" schema="youni">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+		</table> -->
+		
+	<!--  -->
+ 	
+<!--  <table tableName="AIP_SV_LOG" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+ 
+ <table tableName="AIP_SERVICE_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+ <table tableName="AIP_APP_INFO" schema="aip" >
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			 
+		</table> 
+
+ 
+ <table tableName="AIP_SERVICE_GROUP_RELATION" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+       
+    </table>
+ 
+ <table tableName="AIP_CFG_IP_ACCESS" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table> 
+
+    <table tableName="AIP_SERVICE_DOC" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+
+
+   
+
+    <table tableName="AIP_SERVICE_SMS_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+     
+    </table>
+
+    <table tableName="AIP_SV_GRP_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+
+     <table tableName="AIP_SV_PERMISSION_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+       
+    </table>
+
+      <table tableName="AIP_TOKEN_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+       
+    </table>
+
+     <table tableName="ESB_IP_BUNDLE" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+    
+    </table>
+
+      <table tableName="ESB_SV_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+     
+    </table>
+
+     <table tableName="ESB_SV_PERMISSION_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+     
+    </table>
+     <table tableName="AIP_USER" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+     <table tableName="AIP_SERVICE_GROUP" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+     
+    </table>
+
+     <table tableName="AIP_SERVICE_GROUP_RELATION" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+    
+    </table>
+     <table tableName="AIP_INTERFACE_PARAM_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+     <table tableName="AIP_INTERFACE_PARAM_DEFINE" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+     
+    </table>
+    <table tableName="AIP_INTERFACE_ERROR_DEFINE" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+       
+    </table>
+
+    <table tableName="AOP_CONFIG" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+
+     <table tableName="AOP_BUSINESS_LOG" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+   
+    </table>
+    <table tableName="AIP_NOTICE" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+
+     <table tableName="AIP_INTERFACE_ERROR_DETAIL" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+
+
+    <table tableName="AIP_INTERFACE_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+    <table tableName="AIP_OAUTH_LOG" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+      
+    </table>
+
+     <table tableName="AIP_OAUTH_CODE" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+    
+    </table>
+
+
+    <table tableName="AIP_OAUTH_TYPE_PARAM" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+ 
+    </table>
+
+     <table tableName="AIP_OAUTH_SMS_INFO" schema="aip" >
+      <property name="ignoreQualifiersAtRuntime" value="true" />
+     
+    </table> -->
+	</context>
+</generatorConfiguration>  

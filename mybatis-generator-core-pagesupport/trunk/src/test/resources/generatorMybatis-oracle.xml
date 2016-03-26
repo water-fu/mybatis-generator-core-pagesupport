@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<!--   <classPathEntry location="D:\maven-reponsitoy\mysql\mysql-connector-java\5.1.25\mysql-connector-java-5.1.25.jar" />
+ --><context id="MySqlTables" targetRuntime="MyBatis3">
+ 	<property name="DBType" value="oracle"></property>
+ 
+	<plugin type="org.asia.mybatis.generator.plugins.OraclePaginationPlugin" />
+	<plugin type="org.asia.mybatis.generator.plugins.BatchInsertPlugin" />  
+  
+<!--     <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" -->
+<!--         connectionURL="jdbc:oracle:thin:@42.121.57.229:1521:order" -->
+<!--         userId="orgi" -->
+<!--         password="orgi"> -->
+<!--     </jdbcConnection> -->
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+        connectionURL="jdbc:oracle:thin:@10.1.234.158:1521:syj"
+        userId="orgi"
+        password="orgi">
+    </jdbcConnection>
+
+<!--     <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver> -->
+    
+    <javaTypeResolver type="MyJavaTypeResolverDefaultImpl">
+		<property name="forceBigDecimals" value="false" />
+	</javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.bdx.rainbow.entity.sys"
+      targetProject="/Users/fusj/Documents/svncode/syj/Trunk/rainbow/rainbow-dao/src/main/java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapper.sys"
+      targetProject="/Users/fusj/Documents/svncode/syj/Trunk/rainbow/rainbow-dao/src/main/resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.bdx.rainbow.mapper.sys"
+      targetProject="/Users/fusj/Documents/svncode/syj/Trunk/rainbow/rainbow-dao/src/main/java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+     <table tableName="SYS_OPER_LOG" domainObjectName="SysOperLog" >
+      <property name="useActualColumnNames" value="false"/>
+      <property name="suffixSupport" value="false" /> 
+	  <generatedKey column="LOG_ID" sqlStatement="SELECT SEQ_SYS_OPER_LOG.nextval from dual" identity="false" />
+    </table>
+  </context>
+</generatorConfiguration>
